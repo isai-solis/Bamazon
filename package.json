@@ -1,0 +1,23 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "Amazon-like app using MySQL that will take in orders from customers and deplete stock from the store's inventory.",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isai-solis/Bamazon.git"
+  },
+  "author": "Isai Solis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isai-solis/Bamazon/issues"
+  },
+  "homepage": "https://github.com/isai-solis/Bamazon#readme",
+  "dependencies": {
+    "inquirer": "^3.2.3",
+    "mysql": "^2.14.1"
+  }
+}

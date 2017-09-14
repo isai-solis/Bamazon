@@ -1,6 +1,12 @@
 # Bamazon
 This is an Amazon-like app using MySQL that will take in orders from customers and deplete stock from the store's inventory.
 
+**Dependancies**
+Ensure the following npm packages are installed by typing **_npm install_** in the terminal once you are in directory of the bamazonCustomer.js file:
+  * mysql
+  * inquirer
+  * cli-table
+
 **Products Tabe Content:**
   * **Item Id** - unique id number of the item
   * **Product Name** - name of the products in inventory

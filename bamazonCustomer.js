@@ -1,11 +1,7 @@
 var mysql=require("mysql");
 var inquirer=require("inquirer");
 var Table = require('cli-table');
-var table = new Table({
-    head: ['ID', 'Name', 'Price'],
-    colWidths: [5, 40, 10]
-});
-
+var table;
 var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
@@ -39,6 +35,10 @@ function initialize(){
 };  
 function startShopping(){
     console.log("Retrieving list of products, please wait...\n");
+    table = new Table({
+        head: ['ID', 'Name', 'Price'],
+        colWidths: [5, 40, 10]
+    });
     connection.query("SELECT item_id, product_name, price, stock_quantity FROM products", function(err, res){
         if (err) throw err;
         for (var i=0; i<res.length; i++){
@@ -70,8 +70,7 @@ function startShopping(){
                 return false;
             }
       
-        }]       
-        ).then(function(answer){
+        }]).then(function(answer){
             var chosenId;
             for(var i=0; i<res.length; i++){
                 if (res[i].item_id == parseInt(answer.askId)){
@@ -93,13 +92,13 @@ function startShopping(){
                     function(error){
                         if (error) throw err;
                         console.log("Thank you for your purchase.");
+                        table = "";
                         initialize();
                     }
-
                 );
-            }
-            else{
+            }else{
                 console.log("We do not have that amount in our inventory. Let us try again.");
+                table = "";
                 initialize();
             }
         });
